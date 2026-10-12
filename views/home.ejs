@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Greeting App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            text-align: center;
+            padding: 60px 15px;
+        }
+
+        .card {
+            background: white;
+            max-width: 380px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #0002;
+        }
+
+        h1 {
+            color: #4f46e5;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        input, select {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background: #eef2ff;
+            border-radius: 10px;
+        }
+
+        .quote {
+            color: #4338ca;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>👋 Smart Greeting</h1>
+        <p>Enter your name and choose your language!</p>
+
+        <form action="/greet" method="POST">
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <select name="language">
+                <option value="English">English</option>
+                <option value="Marathi">मराठी</option>
+                <option value="Hindi">हिंदी</option>
+            </select>
+
+            <button type="submit">Greet Me ✨</button>
+        </form>
+
+        <% if (typeof greeting !== "undefined") { %>
+            <div class="result">
+                <h2>
+                    <%= greeting %>,
+                    <%= name %>! 🎉
+                </h2>
+
+                <p class="quote">
+                    💬 <%= quote %>
+                </p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
